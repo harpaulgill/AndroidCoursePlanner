@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by kgrover on 2017-07-09.
@@ -28,7 +29,7 @@ public class CourseDB {
         this.context = context;
     }
 
-    public ArrayList<Course> getAllCourses() throws IOException, JSONException {
+    public HashMap<String, Course> getAllCourses() throws IOException, JSONException {
         // Reading text file from assets folder
         StringBuilder sb = new StringBuilder();
         BufferedReader br = null;
@@ -56,7 +57,7 @@ public class CourseDB {
         // Creating JSONArray from JSONObject
         JSONArray jsonArray = jsonObjMain.getJSONArray("courses");
 
-        ArrayList<Course> courses = new ArrayList<Course>();
+        HashMap<String, Course> courses = new HashMap<>();
 
         for (int i = 0; i < jsonArray.length(); i++) {
             // Creating JSONObject from JSONArray
@@ -67,7 +68,7 @@ public class CourseDB {
             String faculty = jsonObj.getString("faculty");
 
             Course course = new Course(courseSubject, courseId, credits, faculty);
-            courses.add(course);
+            courses.put(courseId, course);
         }
 
         return courses;
