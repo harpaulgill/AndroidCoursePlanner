@@ -1,0 +1,15 @@
+{
+  "courses":[
+  {
+    "courseSubject": "ENGL",
+    "courseId": "ENGL 112",
+    "credits": "3",
+    "faculty": "Art"
+  },
+  {
+    "courseSubject": "MATH",
+    "courseId": "MATH 100",
+    "credits": "3",
+    "faculty": "Mathematics"
+  }
+]}

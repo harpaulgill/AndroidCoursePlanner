@@ -2,6 +2,9 @@ package com.example.thinkpad.androidcourseplanner;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
+
+import com.example.thinkpad.androidcourseplanner.Course;
 
 import org.json.JSONArray;
 import org.json.JSONException;
