@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CourseList"
+                  android:parentActivityName=".MainCourseActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainCourseActivity"/>
+        </activity>
+
     </application>
 
 </manifest>
