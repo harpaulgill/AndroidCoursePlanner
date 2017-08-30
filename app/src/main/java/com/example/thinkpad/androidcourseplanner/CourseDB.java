@@ -23,16 +23,27 @@ import java.util.HashMap;
 
 public class CourseDB {
 
-    Context context;
+    private Context context;
+//    private static CourseDB mCourseDBInstance;
 
-    protected CourseDB(Context context) {
+    CourseDB(Context context) {
         this.context = context;
     }
 
-    public HashMap<String, Course> getAllCourses() throws IOException, JSONException {
+    // Implementation of Singleton design pattern for CourseDB
+//    static CourseDB getCourseDBInstance(Context context) {
+//        if (mCourseDBInstance == null) {
+//            mCourseDBInstance = new CourseDB(context);
+//        }
+//        return mCourseDBInstance;
+//    }
+
+    public HashMap<String, Course> getAllCourses(){
         // Reading text file from assets folder
         StringBuilder sb = new StringBuilder();
         BufferedReader br = null;
+        HashMap<String, Course> courses = new HashMap<>();
+
         try {
             AssetManager assetManager = context.getAssets();
             InputStream is = assetManager.open("jsondata.txt");
@@ -44,31 +55,34 @@ public class CourseDB {
             e.printStackTrace();
         } finally {
             try {
+                //TODO: Handle case where NULL
                 br.close(); // stop reading
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        String myjsonstring = sb.toString();
+        String jsonString = sb.toString();
 
-        // Creating JSONObject from String
-        JSONObject jsonObjMain = new JSONObject(myjsonstring);
 
-        // Creating JSONArray from JSONObject
-        JSONArray jsonArray = jsonObjMain.getJSONArray("courses");
+        try {
+            // Creating JSONObject from String
+            JSONObject jsonObjMain = new JSONObject(jsonString);
+            // Creating JSONArray from JSONObject
+            JSONArray jsonArray = jsonObjMain.getJSONArray("courses");
 
-        HashMap<String, Course> courses = new HashMap<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                // Creating JSONObject from JSONArray
+                JSONObject jsonObj = jsonArray.getJSONObject(i);
+                String courseSubject = jsonObj.getString("courseSubject");
+                String courseId = jsonObj.getString("courseId");
+                String credits = jsonObj.getString("credits");
+                String faculty = jsonObj.getString("faculty");
 
-        for (int i = 0; i < jsonArray.length(); i++) {
-            // Creating JSONObject from JSONArray
-            JSONObject jsonObj = jsonArray.getJSONObject(i);
-            String courseSubject = jsonObj.getString("courseSubject");
-            String courseId = jsonObj.getString("courseId");
-            String credits = jsonObj.getString("credits");
-            String faculty = jsonObj.getString("faculty");
-
-            Course course = new Course(courseSubject, courseId, credits, faculty);
-            courses.put(courseId, course);
+                Course course = new Course(courseSubject, courseId, credits, faculty);
+                courses.put(courseId, course);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         return courses;

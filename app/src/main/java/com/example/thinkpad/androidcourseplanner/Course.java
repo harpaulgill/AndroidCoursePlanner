@@ -23,7 +23,7 @@ public class Course {
      * @param credits
      *            the amount of credits this course is worth
      */
-    public Course(String subject, String courseId, String credits, String faculty) {
+    Course(String subject, String courseId, String credits, String faculty) {
         this.subject = subject;
         this.courseNum = courseId;
         this.credits = credits;

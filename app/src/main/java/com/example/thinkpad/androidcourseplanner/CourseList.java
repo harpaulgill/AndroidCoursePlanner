@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class CourseList extends AppCompatActivity {
 
-    Term mTerm;
+    private Term mTerm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
