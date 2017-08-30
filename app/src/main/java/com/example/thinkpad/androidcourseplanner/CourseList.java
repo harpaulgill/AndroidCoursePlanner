@@ -12,19 +12,19 @@ import java.io.IOException;
 
 public class CourseList extends AppCompatActivity {
 
+    Term mTerm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        int termNum = getIntent().getIntExtra("term", 0);
+        int yearNum = getIntent().getIntExtra("year", 0);
+        mTerm = new Term(termNum, yearNum);
     }
 
     public void submitCourses(View view) throws IOException, JSONException {
-        Log.v("tag", "message");
         Intent intent = new Intent(this, MainCourseActivity.class);
-/*        CourseDB courseDB = new CourseDB(this);
-        ArrayList<Course> courseArray = courseDB.getAllCourses();
-        String message = courseArray.get(0).getSubject();
-        intent.putExtra(EXTRA_MESSAGE, message);*/
         startActivity(intent);
     }
 }
