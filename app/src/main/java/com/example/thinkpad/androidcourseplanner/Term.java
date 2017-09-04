@@ -14,7 +14,7 @@ public class Term {
         listOfCourses = new ArrayList<>();
     }
 
-    public String getIdentifier(){ return this.termIdentifier;}
+    public String getIdentifier(){ return termIdentifier;}
 
     void addCourse(Course course){
         listOfCourses.add(course);
@@ -27,6 +27,7 @@ public class Term {
     boolean containsCourse(Course c){
         return listOfCourses.contains(c);
     }
+
 
 /*    @Override
     public boolean equals(Object o) {

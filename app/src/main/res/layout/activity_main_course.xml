@@ -8,7 +8,7 @@
     tools:context="com.example.thinkpad.androidcourseplanner.MainCourseActivity">
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/yearOneTermOneButton"
+        android:id="@+id/yearOneTermOne"
         android:text="@string/button1"
         android:layout_width="wrap_content"
         android:layout_marginTop="16dp"
@@ -19,13 +19,13 @@
         android:onClick="goToCourseList" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/yearOneTermTwoButton"
+        android:id="@+id/yearOneTermTwo"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:onClick="goToCourseList"
         android:text="@string/button2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/yearOneTermOneButton"/>
+        app:layout_constraintTop_toTopOf="@+id/yearOneTermOne"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -14,6 +14,7 @@ public class CourseList extends AppCompatActivity {
 
     private CourseDB mCourseDB;
     private TermDB mTermDB = TermDB.getSingletonInstance();
+    Term term;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,8 @@ public class CourseList extends AppCompatActivity {
         setContentView(R.layout.activity_course_list);
         mCourseDB = new CourseDB(this);
         String termNum = getIntent().getStringExtra("termIdentifier");
+        term = mTermDB.getTerm(termNum);
+        String testString = term.getIdentifier();
 
     }
 
