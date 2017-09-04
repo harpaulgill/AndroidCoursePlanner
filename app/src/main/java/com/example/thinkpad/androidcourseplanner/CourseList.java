@@ -12,16 +12,16 @@ import java.io.IOException;
 
 public class CourseList extends AppCompatActivity {
 
-    private Term mTerm;
+    private CourseDB mCourseDB;
+    private TermDB mTermDB = TermDB.getSingletonInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
-        //TODO: Handle case where default value zero is used
-        int termNum = getIntent().getIntExtra("term", 0);
-        int yearNum = getIntent().getIntExtra("year", 0);
-        mTerm = new Term(termNum, yearNum);
+        mCourseDB = new CourseDB(this);
+        String termNum = getIntent().getStringExtra("termIdentifier");
+
     }
 
     public void submitCourses(View view) throws IOException, JSONException {
