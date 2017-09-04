@@ -1,13 +1,21 @@
 package com.example.thinkpad.androidcourseplanner;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 class TermDB {
-    private HashSet<Term> mTermHashSet;
+    private HashMap<String, Term> mTermHashMap;
     private static TermDB singletonInstance;
 
     private TermDB() {
-        mTermHashSet = new HashSet<>();
+        mTermHashMap = new HashMap<String, Term>();
+        mTermHashMap.put("yearOneTermOne", new Term("yearOneTermOne"));
+        mTermHashMap.put("yearOneTermTwo", new Term("yearOneTermTwo"));
+        mTermHashMap.put("yearTwoTermOne", new Term("yearTwoTermOne"));
+        mTermHashMap.put("yearTwoTermTwo", new Term("yearTwoTermTwo"));
+        mTermHashMap.put("yearThreeTermOne", new Term("yearThreeTermOne"));
+        mTermHashMap.put("yearThreeTermTwo", new Term("yearThreeTermTwo"));
+        mTermHashMap.put("yearFourTermOne", new Term("yearFourTermOne"));
+        mTermHashMap.put("yearFourTermTwo", new Term("yearFourTermTwo"));
     }
 
     static TermDB getSingletonInstance() {
@@ -17,29 +25,16 @@ class TermDB {
         return singletonInstance;
     }
 
-    Term addTerm(Term term){
-        if(mTermHashSet.contains(term)){
-            for(Term t : mTermHashSet){
-                if(term.equals(t)){
-                    return t;
-                }
-            }
-        }
-        mTermHashSet.add(term);
-        return term;
-    }
-
-    boolean termExists(int term, int year){
-        Term termObj = new Term(term, year);
-        return mTermHashSet.contains(termObj);
+    Term getTerm(String identifier){
+        return mTermHashMap.get(identifier);
     }
 
     void deleteAllTerms(){
-        mTermHashSet.clear();
+        mTermHashMap.clear();
     }
 
     int getSize(){
-        return mTermHashSet.size();
+        return mTermHashMap.size();
     }
 
 }
