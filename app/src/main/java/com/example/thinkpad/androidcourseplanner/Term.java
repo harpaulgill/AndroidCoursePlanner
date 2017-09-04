@@ -2,29 +2,19 @@ package com.example.thinkpad.androidcourseplanner;
 
 import java.util.ArrayList;
 
-
 public class Term {
-    private int termNumber;
-    private int year;
+    private String termIdentifier;
     private ArrayList<Course> listOfCourses;
     private TermDB mTermDB;
 
-    public Term(int termNumber, int year){
+    public Term(String identifier){
         //TODO: Add in a check to see if term with these traits already exists in termDB
         //      if it does than return the existing term object
-        this.termNumber = termNumber;
-        this.year = year;
+        this.termIdentifier = identifier;
         listOfCourses = new ArrayList<>();
-        mTermDB = TermDB.getSingletonInstance();
     }
 
-    public int getYear(){
-        return year;
-    }
-
-    public int getTermNumber(){
-        return termNumber;
-    }
+    public String getIdentifier(){ return this.termIdentifier;}
 
     void addCourse(Course course){
         listOfCourses.add(course);
@@ -38,7 +28,7 @@ public class Term {
         return listOfCourses.contains(c);
     }
 
-    @Override
+/*    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -53,5 +43,5 @@ public class Term {
         int result = termNumber;
         result = 31 * result + year;
         return result;
-    }
+    }*/
 }
