@@ -11,15 +11,6 @@
     tools:context="com.example.thinkpad.androidcourseplanner.CourseList">
 
     <android.support.v7.widget.AppCompatButton
-        android:text="@string/button_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/button"
-        android:onClick="submitCourses" />
-
-    <android.support.v7.widget.AppCompatButton
         android:id="@+id/testbutton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -31,7 +22,6 @@
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@id/testbutton"
         android:layout_alignParentTop="true"
-        />
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>
