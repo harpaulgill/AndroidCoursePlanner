@@ -8,7 +8,12 @@ class TermDB {
 
     private TermDB() {
         mTermHashMap = new HashMap<String, Term>();
-        mTermHashMap.put("yearOneTermOne", new Term("yearOneTermOne"));
+        Term yearOneTermOne = new Term("yearOneTermOne");
+        Course course1 = new Course("ENGL", "ENGL 112", "3","Art");
+        Course course2 = new Course("ENGL", "ENGL 110", "3","Art");
+        yearOneTermOne.addCourse(course1);
+        yearOneTermOne.addCourse(course2);
+        mTermHashMap.put("yearOneTermOne", yearOneTermOne);
         mTermHashMap.put("yearOneTermTwo", new Term("yearOneTermTwo"));
         mTermHashMap.put("yearTwoTermOne", new Term("yearTwoTermOne"));
         mTermHashMap.put("yearTwoTermTwo", new Term("yearTwoTermTwo"));

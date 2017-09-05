@@ -15,8 +15,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/submit"
-        android:onClick="submitCourses" />
+        android:onClick="submitCourses"
+        android:text="@string/submit"/>
 
     <ListView
         android:id="@+id/list"

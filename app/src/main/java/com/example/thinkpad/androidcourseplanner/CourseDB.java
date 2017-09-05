@@ -17,9 +17,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by kgrover on 2017-07-09.
- */
 
 public class CourseDB {
 

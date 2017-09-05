@@ -8,7 +8,7 @@ package com.example.thinkpad.androidcourseplanner;
 public class Course {
 
     private final String subject;
-    private final String courseNum;
+    private final String courseId;
     private final String credits;
     private final String faculty;
     private final Boolean isSelected;
@@ -25,7 +25,7 @@ public class Course {
      */
     Course(String subject, String courseId, String credits, String faculty) {
         this.subject = subject;
-        this.courseNum = courseId;
+        this.courseId = courseId;
         this.credits = credits;
         this.faculty = faculty;
         this.isSelected = false;
@@ -35,8 +35,8 @@ public class Course {
         return this.subject;
     }
 
-    public String getCourseNum() {
-        return this.courseNum;
+    public String getCourseId() {
+        return this.courseId;
     }
 
     public String getCredits() {
