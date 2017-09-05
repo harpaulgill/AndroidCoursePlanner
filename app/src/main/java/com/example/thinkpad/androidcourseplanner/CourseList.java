@@ -6,6 +6,8 @@ package com.example.thinkpad.androidcourseplanner;
 import android.app.Activity;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.CorrectionInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,22 +29,17 @@ public class CourseList extends Activity implements
     Button button;
     ListView listView;
     ArrayAdapter<String> adapter;
+    ArrayList<String> courses;
+    CourseDB mCourseDB;
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
-
-
-        findViewsById();
-
-        List<String> courses = new LinkedList<>();
-        courses.add("ENGL 112");
-        courses.add("MATH 100");
-        courses.add("PHYS 101");
-        courses.add("CHEM 101");
-        adapter = new ArrayAdapter<String>(this,
+        getCoursesList();
+        listView = (ListView) findViewById(R.id.list);
+        button = (Button) findViewById(R.id.testbutton);
+        adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_multiple_choice, courses);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
@@ -49,9 +47,16 @@ public class CourseList extends Activity implements
         button.setOnClickListener(this);
     }
 
-    private void findViewsById() {
-        listView = (ListView) findViewById(R.id.list);
-        button = (Button) findViewById(R.id.testbutton);
+    private void getCoursesList(){
+        courses = new ArrayList<>();
+        mCourseDB = new CourseDB(this);
+        HashMap<String, Course> courseHashMap = mCourseDB.getAllCourses();
+        Iterator iterator = courseHashMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            HashMap.Entry entryPair = (HashMap.Entry) iterator.next();
+            String courseId = (String) entryPair.getKey();
+            courses.add(courseId);
+        }
     }
 
     public void onClick(View v) {
