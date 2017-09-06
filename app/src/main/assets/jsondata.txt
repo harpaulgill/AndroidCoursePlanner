@@ -1,15 +1,63 @@
 {
   "courses":[
-  {
+    {
     "courseSubject": "ENGL",
     "courseId": "ENGL 112",
     "credits": "3",
     "faculty": "Art"
-  },
-  {
+    },
+    {
     "courseSubject": "MATH",
     "courseId": "MATH 100",
     "credits": "3",
-    "faculty": "Mathematics"
-  }
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "MATH",
+    "courseId": "MATH 101",
+    "credits": "3",
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "CHEM",
+    "courseId": "CHEM 154",
+    "credits": "3",
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "PHYS",
+    "courseId": "PHYS 157",
+    "credits": "3",
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "PHYS",
+    "courseId": "PHYS 158",
+    "credits": "3",
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "MATH",
+    "courseId": "MATH 152",
+    "credits": "3",
+    "faculty": "Science"
+    },
+    {
+    "courseSubject": "APSC",
+    "courseId": "APSC 100",
+    "credits": "3",
+    "faculty": "Engineering"
+    },
+    {
+    "courseSubject": "APSC",
+    "courseId": "APSC 101",
+    "credits": "3",
+    "faculty": "Engineering"
+    },
+    {
+    "courseSubject": "APSC",
+    "courseId": "APSC 160",
+    "credits": "3",
+    "faculty": "Engineering"
+    }
 ]}

@@ -74,6 +74,8 @@ public class CourseList extends Activity implements
                 selectedItems.add(adapter.getItem(position));
         }
 
+        term.deleteCourses();
+
         for (String s : selectedItems) {
             Course course = mCourseDB.getCourse(s);
             term.addCourse(course);

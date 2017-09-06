@@ -34,4 +34,7 @@ public class Term {
         }
         return courseList;
     }
+
+    void deleteCourses(){ listOfCourses.clear();}
+
 }
