@@ -1,6 +1,7 @@
 package com.example.thinkpad.androidcourseplanner;
 
 import android.content.Context;
+import android.content.pm.ComponentInfo;
 import android.content.res.AssetManager;
 import android.util.Log;
 
@@ -22,20 +23,10 @@ public class CourseDB {
 
     private Context context;
 //    private static CourseDB mCourseDBInstance;
+    HashMap<String, Course> allCourses;
 
     CourseDB(Context context) {
         this.context = context;
-    }
-
-    // Implementation of Singleton design pattern for CourseDB
-//    static CourseDB getCourseDBInstance(Context context) {
-//        if (mCourseDBInstance == null) {
-//            mCourseDBInstance = new CourseDB(context);
-//        }
-//        return mCourseDBInstance;
-//    }
-
-    public HashMap<String, Course> getAllCourses(){
         // Reading text file from assets folder
         StringBuilder sb = new StringBuilder();
         BufferedReader br = null;
@@ -82,6 +73,22 @@ public class CourseDB {
             e.printStackTrace();
         }
 
-        return courses;
+        allCourses = courses;
+    }
+
+    // Implementation of Singleton design pattern for CourseDB
+//    static CourseDB getCourseDBInstance(Context context) {
+//        if (mCourseDBInstance == null) {
+//            mCourseDBInstance = new CourseDB(context);
+//        }
+//        return mCourseDBInstance;
+//    }
+
+    public Course getCourse(String courseId){
+        return allCourses.get(courseId);
+    }
+
+    public HashMap<String, Course> getAllCourses(){
+        return allCourses;
     }
 }

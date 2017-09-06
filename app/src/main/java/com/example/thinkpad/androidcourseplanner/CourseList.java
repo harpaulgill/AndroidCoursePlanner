@@ -31,6 +31,8 @@ public class CourseList extends Activity implements
     ArrayAdapter<String> adapter;
     ArrayList<String> courses;
     CourseDB mCourseDB;
+    TermDB mTermDB;
+    Term term;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class CourseList extends Activity implements
         listView.setAdapter(adapter);
 
         button.setOnClickListener(this);
+        mTermDB = TermDB.getSingletonInstance();
+        term = mTermDB.getTerm(getIntent().getStringExtra("termIdentifier"));
     }
 
     private void getCoursesList(){
@@ -60,24 +64,30 @@ public class CourseList extends Activity implements
     }
 
     public void onClick(View v) {
-/*        SparseBooleanArray checked = listView.getCheckedItemPositions();
+        SparseBooleanArray checked = listView.getCheckedItemPositions();
         ArrayList<String> selectedItems = new ArrayList<String>();
         for (int i = 0; i < checked.size(); i++) {
-            // Item position in adapter
+            // Item position in adapterCoursesYearOneTermOne
             int position = checked.keyAt(i);
-            // Add sport if it is checked i.e.) == TRUE!
+            // Add course if it is checked i.e.) == TRUE!
             if (checked.valueAt(i))
                 selectedItems.add(adapter.getItem(position));
         }
 
-        String[] outputStrArr = new String[selectedItems.size()];
-
-        for (int i = 0; i < selectedItems.size(); i++) {
-            outputStrArr[i] = selectedItems.get(i);*/
+        for(String s : selectedItems){
+            Course course = mCourseDB.getCourse(s);
+            term.addCourse(course);
+        }
 
         Intent intent = new Intent(this, MainCourseActivity.class);
         startActivity(intent);
+//
+//        String[] outputStrArr = new String[selectedItems.size()];
 
+//        for (int i = 0; i < selectedItems.size(); i++) {
+//            outputStrArr[i] = selectedItems.get(i);
+//
+//
         }
 
 

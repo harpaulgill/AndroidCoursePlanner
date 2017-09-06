@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import org.json.JSONException;
@@ -16,9 +15,14 @@ import java.util.ArrayList;
 
 public class MainCourseActivity extends AppCompatActivity {
 
-    ListView mListView;
-    ArrayAdapter<String> adapter;
+    ListView mListViewCoursesYearOneTermOne;
+    ArrayAdapter<String> adapterCoursesYearOneTermOne;
     ArrayList<String> coursesYearOneTermOne;
+
+    ListView mListViewCoursesYearOneTermTwo;
+    ArrayAdapter<String> adapterCoursesYearOneTermTwo;
+    ArrayList<String> coursesYearOneTermTwo;
+
     TermDB mTermDB;
 
 
@@ -29,11 +33,19 @@ public class MainCourseActivity extends AppCompatActivity {
         mTermDB = TermDB.getSingletonInstance();
 
         coursesYearOneTermOne = getTermCourses("yearOneTermOne");
+        coursesYearOneTermTwo = getTermCourses("yearOneTermTwo");
 
-        mListView = (ListView) findViewById(R.id.yearOneTermOneListView);
-        adapter = new ArrayAdapter<>(this,
+        mListViewCoursesYearOneTermOne = (ListView) findViewById(R.id.yearOneTermOneListView);
+        adapterCoursesYearOneTermOne = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, coursesYearOneTermOne);
-        mListView.setAdapter(adapter);
+
+        mListViewCoursesYearOneTermTwo = (ListView) findViewById(R.id.yearOneTermTwoListView);
+        adapterCoursesYearOneTermTwo = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearOneTermTwo);
+
+
+        mListViewCoursesYearOneTermOne.setAdapter(adapterCoursesYearOneTermOne);
+        mListViewCoursesYearOneTermTwo.setAdapter(adapterCoursesYearOneTermTwo);
 
     }
 
