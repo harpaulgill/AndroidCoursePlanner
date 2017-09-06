@@ -74,34 +74,12 @@ public class CourseList extends Activity implements
                 selectedItems.add(adapter.getItem(position));
         }
 
-        for(String s : selectedItems){
+        for (String s : selectedItems) {
             Course course = mCourseDB.getCourse(s);
             term.addCourse(course);
         }
 
         Intent intent = new Intent(this, MainCourseActivity.class);
         startActivity(intent);
-//
-//        String[] outputStrArr = new String[selectedItems.size()];
-
-//        for (int i = 0; i < selectedItems.size(); i++) {
-//            outputStrArr[i] = selectedItems.get(i);
-//
-//
-        }
-
-
-
-
-
-/*        // Create a bundle object
-        Bundle b = new Bundle();
-        b.putStringArray("selectedItems", outputStrArr);
-
-        // Add the bundle to the intent.
-        intent.putExtras(b);
-
-        // start the ResultActivity
-        startActivity(intent);*/
-
+    }
 }

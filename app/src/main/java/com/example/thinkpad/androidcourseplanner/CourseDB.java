@@ -76,14 +76,6 @@ public class CourseDB {
         allCourses = courses;
     }
 
-    // Implementation of Singleton design pattern for CourseDB
-//    static CourseDB getCourseDBInstance(Context context) {
-//        if (mCourseDBInstance == null) {
-//            mCourseDBInstance = new CourseDB(context);
-//        }
-//        return mCourseDBInstance;
-//    }
-
     public Course getCourse(String courseId){
         return allCourses.get(courseId);
     }
