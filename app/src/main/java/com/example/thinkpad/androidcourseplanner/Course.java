@@ -51,12 +51,4 @@ public class Course {
         return this.isSelected;
     }
 
-    public void setTerm(int term){
-        this.term = term;
-    }
-
-    public int getTerm(){
-        return this.term;
-    }
-
 }

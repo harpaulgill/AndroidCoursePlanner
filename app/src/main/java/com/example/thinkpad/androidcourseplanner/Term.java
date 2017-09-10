@@ -35,6 +35,14 @@ public class Term {
         return courseList;
     }
 
+    public int getCredits(){
+        int numCredits = 0;
+        for (Course course : listOfCourses){
+            numCredits += Integer.parseInt(course.getCredits());
+        }
+        return numCredits;
+    }
+
     void deleteCourses(){ listOfCourses.clear();}
 
 }
