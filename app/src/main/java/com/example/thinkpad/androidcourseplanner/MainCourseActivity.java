@@ -15,6 +15,11 @@ import java.util.ArrayList;
 
 public class MainCourseActivity extends AppCompatActivity {
 
+    Integer yearOneCredits;
+    Integer yearTwoCredits;
+    Integer yearThreeCredits;
+    Integer yearFourCredits;
+
     ListView mListViewCoursesYearOneTermOne;
     ArrayAdapter<String> adapterCoursesYearOneTermOne;
     ArrayList<String> coursesYearOneTermOne;
@@ -72,6 +77,11 @@ public class MainCourseActivity extends AppCompatActivity {
     private ArrayList<String> getTermCourses(String termId){
         Term term = mTermDB.getTerm(termId);
         return term.getAllCourseNames();
+    }
+
+    private int getTermCredits(String termId){
+        Term term = mTermDB.getTerm(termId);
+        return term.getCredits();
     }
 
     public void goToCourseList(View view) throws IOException, JSONException {
