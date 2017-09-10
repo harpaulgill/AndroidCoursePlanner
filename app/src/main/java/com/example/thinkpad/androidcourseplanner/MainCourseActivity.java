@@ -23,8 +23,15 @@ public class MainCourseActivity extends AppCompatActivity {
     ArrayAdapter<String> adapterCoursesYearOneTermTwo;
     ArrayList<String> coursesYearOneTermTwo;
 
-    TermDB mTermDB;
+    ListView mListViewCoursesYearTwoTermOne;
+    ArrayAdapter<String> adapterCoursesYearTwoTermOne;
+    ArrayList<String> coursesYearTwoTermOne;
 
+    ListView mListViewCoursesYearTwoTermTwo;
+    ArrayAdapter<String> adapterCoursesYearTwoTermTwo;
+    ArrayList<String> coursesYearTwoTermTwo;
+
+    TermDB mTermDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,8 @@ public class MainCourseActivity extends AppCompatActivity {
 
         coursesYearOneTermOne = getTermCourses("yearOneTermOne");
         coursesYearOneTermTwo = getTermCourses("yearOneTermTwo");
+        coursesYearTwoTermOne = getTermCourses("yearTwoTermOne");
+        coursesYearTwoTermTwo = getTermCourses("yearTwoTermTwo");
 
         mListViewCoursesYearOneTermOne = (ListView) findViewById(R.id.yearOneTermOneListView);
         adapterCoursesYearOneTermOne = new ArrayAdapter<>(this,
@@ -43,9 +52,20 @@ public class MainCourseActivity extends AppCompatActivity {
         adapterCoursesYearOneTermTwo = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, coursesYearOneTermTwo);
 
+        mListViewCoursesYearTwoTermOne = (ListView) findViewById(R.id.yearTwoTermOneListView);
+        adapterCoursesYearTwoTermOne = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearTwoTermOne);
+
+        mListViewCoursesYearTwoTermTwo = (ListView) findViewById(R.id.yearTwoTermTwoListView);
+        adapterCoursesYearTwoTermTwo = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearTwoTermTwo);
+
 
         mListViewCoursesYearOneTermOne.setAdapter(adapterCoursesYearOneTermOne);
         mListViewCoursesYearOneTermTwo.setAdapter(adapterCoursesYearOneTermTwo);
+
+        mListViewCoursesYearTwoTermOne.setAdapter(adapterCoursesYearTwoTermOne);
+        mListViewCoursesYearTwoTermTwo.setAdapter(adapterCoursesYearTwoTermTwo);
 
     }
 
