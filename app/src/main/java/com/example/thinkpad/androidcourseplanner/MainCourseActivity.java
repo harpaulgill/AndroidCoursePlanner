@@ -36,6 +36,22 @@ public class MainCourseActivity extends AppCompatActivity {
     ArrayAdapter<String> adapterCoursesYearTwoTermTwo;
     ArrayList<String> coursesYearTwoTermTwo;
 
+    ListView mListViewCoursesYearThreeTermOne;
+    ArrayAdapter<String> adapterCoursesYearThreeTermOne;
+    ArrayList<String> coursesYearThreeTermOne;
+
+    ListView mListViewCoursesYearThreeTermTwo;
+    ArrayAdapter<String> adapterCoursesYearThreeTermTwo;
+    ArrayList<String> coursesYearThreeTermTwo;
+
+    ListView mListViewCoursesYearFourTermOne;
+    ArrayAdapter<String> adapterCoursesYearFourTermOne;
+    ArrayList<String> coursesYearFourTermOne;
+
+    ListView mListViewCoursesYearFourTermTwo;
+    ArrayAdapter<String> adapterCoursesYearFourTermTwo;
+    ArrayList<String> coursesYearFourTermTwo;
+
     TermDB mTermDB;
 
     @Override
@@ -48,6 +64,10 @@ public class MainCourseActivity extends AppCompatActivity {
         coursesYearOneTermTwo = getTermCourses("yearOneTermTwo");
         coursesYearTwoTermOne = getTermCourses("yearTwoTermOne");
         coursesYearTwoTermTwo = getTermCourses("yearTwoTermTwo");
+        coursesYearThreeTermOne = getTermCourses("yearThreeTermOne");
+        coursesYearThreeTermTwo = getTermCourses("yearThreeTermTwo");
+        coursesYearFourTermOne = getTermCourses("yearFourTermOne");
+        coursesYearFourTermTwo = getTermCourses("yearFourTermTwo");
 
         mListViewCoursesYearOneTermOne = (ListView) findViewById(R.id.yearOneTermOneListView);
         adapterCoursesYearOneTermOne = new ArrayAdapter<>(this,
@@ -65,12 +85,35 @@ public class MainCourseActivity extends AppCompatActivity {
         adapterCoursesYearTwoTermTwo = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, coursesYearTwoTermTwo);
 
+        mListViewCoursesYearThreeTermOne = (ListView) findViewById(R.id.yearThreeTermOneListView);
+        adapterCoursesYearThreeTermOne = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearThreeTermOne);
+
+        mListViewCoursesYearThreeTermTwo = (ListView) findViewById(R.id.yearThreeTermTwoListView);
+        adapterCoursesYearThreeTermTwo = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearThreeTermTwo);
+
+        mListViewCoursesYearFourTermOne = (ListView) findViewById(R.id.yearFourTermOneListView);
+        adapterCoursesYearFourTermOne = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearFourTermOne);
+
+        mListViewCoursesYearFourTermTwo = (ListView) findViewById(R.id.yearFourTermTwoListView);
+        adapterCoursesYearFourTermTwo = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coursesYearFourTermTwo);
+
+
 
         mListViewCoursesYearOneTermOne.setAdapter(adapterCoursesYearOneTermOne);
         mListViewCoursesYearOneTermTwo.setAdapter(adapterCoursesYearOneTermTwo);
 
         mListViewCoursesYearTwoTermOne.setAdapter(adapterCoursesYearTwoTermOne);
         mListViewCoursesYearTwoTermTwo.setAdapter(adapterCoursesYearTwoTermTwo);
+
+        mListViewCoursesYearThreeTermOne.setAdapter(adapterCoursesYearThreeTermOne);
+        mListViewCoursesYearThreeTermTwo.setAdapter(adapterCoursesYearThreeTermTwo);
+
+        mListViewCoursesYearFourTermOne.setAdapter(adapterCoursesYearFourTermOne);
+        mListViewCoursesYearFourTermTwo.setAdapter(adapterCoursesYearFourTermTwo);
 
     }
 
