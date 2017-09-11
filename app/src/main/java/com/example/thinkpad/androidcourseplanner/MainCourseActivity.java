@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONException;
 
@@ -115,6 +116,8 @@ public class MainCourseActivity extends AppCompatActivity {
         mListViewCoursesYearFourTermOne.setAdapter(adapterCoursesYearFourTermOne);
         mListViewCoursesYearFourTermTwo.setAdapter(adapterCoursesYearFourTermTwo);
 
+        ((TextView)findViewById(R.id.CreditsText)).setText("Total credits slected: " + mTermDB.getTotalCredits());
+
     }
 
     private ArrayList<String> getTermCourses(String termId){
@@ -122,10 +125,6 @@ public class MainCourseActivity extends AppCompatActivity {
         return term.getAllCourseNames();
     }
 
-    private int getTermCredits(String termId){
-        Term term = mTermDB.getTerm(termId);
-        return term.getCredits();
-    }
 
     public void goToCourseList(View view) throws IOException, JSONException {
         Intent intent = new Intent(this, CourseList.class);

@@ -26,6 +26,15 @@ class TermDB {
         return singletonInstance;
     }
 
+    int getTotalCredits(){
+        int credits = 0;
+        for( String key: mTermHashMap.keySet()){
+            Term term = mTermHashMap.get(key);
+            credits += term.getCredits();
+        }
+        return credits;
+    }
+
     Term getTerm(String identifier){
         return mTermHashMap.get(identifier);
     }
